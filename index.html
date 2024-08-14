@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Brian Craciun | Developer Portfolio</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    var ua = navigator.userAgent.toLowerCase(); 
+    if (ua.indexOf('safari')!=-1){ 
+      if(ua.indexOf('chrome')  > -1){
+
+      }else{
+        window.location.href = "indexS.html" // Redirect
+      }
+      }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+</head>
+<style>
+ body {
+    cursor: none;
+  }
+  .tab-shadow {
+  box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.5);
+  }
+
+  @media only screen and (max-width: 1000px) {
+      .parallax-container .section {
+        position: relative;
+      }
+      .white-text-modified {
+         color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      }
+      .white-text-modified::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+        opacity: 1;
+      }
+  }
+  .white-text-modified {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    --after-bottom: -5px;
+  }
+
+  .white-text-modified::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: var(--after-bottom);
+
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    opacity: 0.6;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+
+  .white-text-modified:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    opacity: 1;
+  }
+
+  .white-text-modified:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+  .parallax-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: 80%;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  }
+
+  .space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  }
+
+  .space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+  }
+
+  .space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+  }
+
+  .space-mono-bold-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+  }
+
+  #cube-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .cube {
+    position: absolute;
+    width: 10px; 
+    height: 10px; 
+    background-color: rgba(255, 255, 255, 0.8);
+    transform:scale(1.1);
+    animation: shrink-and-fade 1s ease forwards;
+    z-index: 9999;
+  }
+
+  @keyframes shrink-and-fade {
+    0% {
+      transform:scale(1.1); 
+      opacity: 1;
+    }
+    100% {
+      transform:scale(0); 
+      opacity: 0;
+    }
+  }
+
+  input[type="text"]:focus + label,
+  input[type="email"]:focus + label,
+  textarea:focus + label,
+  .input-field .prefix.active {
+    color: white !important;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    border-bottom: 1px solid white !important;
+    box-shadow: 0 1px 0 0 white !important;
+  }
+</style>
+<body>
+  <div id="cube-container"></div>
+  <nav class="black tab-shadow" role="navigation">
+    <div class="nav-wrapper container">
+      
+      <ul class="hide-on-med-and-down"> 
+        <li><a href="#introduction" class="space-mono-regular white-text-modified" style="--after-bottom: 0px;">Introduction</a></li>
+        <li><a href="#projects" class="space-mono-regular white-text-modified" style="--after-bottom: 0px;">Projects</a></li>
+        <li><a href="#contact" class="space-mono-regular white-text-modified" style="--after-bottom: 0px;">Contact</a></li>
+      </ul>
+  
+      <ul id="nav-mobile" class="sidenav black">
+        <li><a href="#introduction" class="space-mono-regular white-text-modified sidenav-close" style="--after-bottom: 0px;"><i class="material-icons white-text">keyboard_arrow_right</i>Introduction</a></li>
+        <li><a href="#projects" class="space-mono-regular white-text-modified sidenav-close" style="--after-bottom: 0px;"><i class="material-icons white-text">keyboard_arrow_right</i>Projects</a></li>
+        <li><a href="#contact" class="space-mono-regular white-text-modified sidenav-close" style="--after-bottom: 0px;"><i class="material-icons white-text">keyboard_arrow_right</i>Contact</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger black white-text"><i class="material-icons green-text-modified">menu</i></a>
+    </div>
+  </nav>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h1 id="introduction" class="space-mono-regular section scrollspy header white-text text-lighten-2" style="font-weight: 370; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Brian Craciun</h1>
+        </div>
+        <div class="row center">
+          <h5 class="space-mono-regular header col s12 light" style="font-weight: 350;">Software Developer</h5>
+        </div>
+        <div class="row center">
+          <ul id="slide-out" class="sidenav black">
+            <li><div class="user-view">
+              <div class="background">
+                <img src="images/background.png">
+              </div>
+              <a href="https://www.linkedin.com/in/bcraciun/" target = "_blank"><img class="circle" src="images/pfp.jpg"></a>
+              <a href="https://www.linkedin.com/in/bcraciun/" target = "_blank"><span class="space-mono-regular white-text-modified name" style="--after-bottom: -40px;">Brian Craciun</span></a>
+              <a href="mailto:brianccwork@gmail.com" target="_blank"><span class="space-mono-regular white-text-modified email" style="--after-bottom: 0px;">brianccwork@gmail.com</span></a>
+            </div></li>
+            <!-- Divider and Projects Section Header -->
+            <li>
+              <div class="divider"></div>
+            </li>
+            <li>
+              <a class="space-mono-regular subheader white-text">
+                <i class="material-icons white-text">assignment_turned_in</i>Projects
+              </a>
+            </li>
+            
+            <!-- Collapsible List for Projects -->
+            <ul class="collapsible popout black">
+              <li>
+                <div class="space-mono-regular collapsible-header waves-effect white-text-modified black" style="--after-bottom: 10px;">
+                  <i class="material-icons white-text">keyboard_arrow_right</i>
+                  <a href="https://drewsmobiledetailing.co/index.html" target="_blank" class="white-text">
+                    Drew's Detailing
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="space-mono-regular collapsible-header waves-effect white-text-modified black" style="--after-bottom: 10px;">
+                  <i class="material-icons white-text">keyboard_arrow_right</i>
+                  <a href="https://www.aere.iastate.edu/~sharma/" target="_blank" class="white-text">
+                    ISU Aerospace
+                  </a>
+                </div>
+              </li>
+            </ul>
+            
+            <!-- Divider and Skills Section Header -->
+            <li>
+              <div class="divider"></div>
+            </li>
+            <li>
+              <a class="space-mono-regular subheader white-text">
+                <i class="material-icons white-text">assignment_turned_in</i>Skills
+              </a>
+            </li>
+            
+            <!-- Collapsible List for Skills -->
+            <ul class="collapsible popout black">
+              <li>
+                <div class="collapsible-header waves-effect white-text-modified black space-mono-regular" style="--after-bottom: 10px;">
+                  <i class="material-icons white-text">keyboard_arrow_right</i>Languages
+                </div>
+                <div class="collapsible-body white-text black space-mono-regular">
+                  <span>Java, Python, JavaScript, C#, C, HTML-5, CSS, Ruby, G-Code, M-Code</span>
+                </div>
+              </li>
+              <li>
+                <div class=" collapsible-header waves-effect white-text-modified black space-mono-regular" style="--after-bottom: 10px;">
+                  <i class="material-icons white-text">keyboard_arrow_right</i>Frameworks
+                </div>
+                <div class="collapsible-body white-text black space-mono-regular">
+                  <span> .NET8, .NET7, Materialize, Blazor, MudBlazor, SmartComponents, OpenAI, jQuery, Jekyll, React, Jekyll Scholar, BibTex</span>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header waves-effect white-text-modified black space-mono-regular" style="--after-bottom: 10px;">
+                  <i class="material-icons white-text">keyboard_arrow_right</i>Dev Tools
+                </div>
+                <div class="collapsible-body white-text black space-mono-regular">
+                  <span> Git, Google Cloud Platform, VS Code, Visual Studio, IntelliJ, Eclipse, IISExpress, ASP.NET Core (Identity Framework), Canva, Blender</span>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header waves-effect white-text-modified black space-mono-regular" style="--after-bottom: 10px;">
+                  <i class="material-icons white-text">keyboard_arrow_right</i>Databases
+                </div>
+                <div class="collapsible-body white-text black space-mono-regular">
+                  <span>Firebase, SQL Server</span>
+                </div>
+              </li>
+            </ul>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="col s12 center">
+            <a data-target="slide-out" 
+               class="sidenav-trigger waves-effect waves-light btn-large white-text-modified space-mono-regular" 
+               style="background-color: rgba(29, 96, 9, 1); --after-bottom: 0px; 
+                      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                      transform: translateY(-3px);">
+               Explore
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="black tab-shadow">
+    <div class="container">
+      <div class="section">
+        <h4 id="projects" class="section scrollspy center white-text space-mono-regular">Projects</h4>
+        <div class="row">
+          <div class="col s12 m12 l4">
+            <div class="card tab-shadow">
+              <div class="card-image">
+                <img src="images/drewsmobiledetailing.jpg">
+                <a class="card-title white-text-modified space-mono-regular" href="https://drewsmobiledetailing.co/index.html" target = "_blank" style="--after-bottom: 0px;">Drews Mobile Detailing</a>
+              </div>
+              <div class="card-content black white-text space-mono-regular">
+                <p>Lead Wesbite Developer for Drews Mobile Detailing building a wesbite that suits all business needs. </p>
+                <br>
+                <p>Applied Skills: HTML-5, CSS, and JavaScript</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 m12 l4">
+              <div class="card tab-shadow">
+                <div class="card-image">
+                  <img src="images/isueng.jpg">
+                  <a class="card-title white-text-modified space-mono-regular" href="https://www.aere.iastate.edu/~sharma/" target = "_blank" style="--after-bottom: 0px;">ISU Aerospace Website</a>
+                </div>
+                <div class="card-content black white-text space-mono-regular">
+                  <p>Front and Back End Development to bring forth a wesbite to display Iowa State University Aerospace Engineering's accomplishments.</p>
+                  <br>
+                  <p>Applied Skills: HTML-5, CSS, JavaScript, Ruby, Jekyll, Jekyll Scholar, Bibtex, and Responsive Images</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l4">
+                <div class="card tab-shadow">
+                  <div class="card-image">
+                    <img src="images/bw-boxes.png">
+                    <a class="card-title white-text-modified space-mono-regular modal-trigger" href="mailto:brianccwork@gmail.com" target="_blank" style="--after-bottom: 0px;">This Could be You!</a>
+                  </div>
+                  <div class="card-content black white-text space-mono-regular">
+                    <a class="white-text-modified modal-trigger" style="--after-bottom: 0px;" href="mailto:brianccwork@gmail.com" target="_blank">Send Me an Email</a>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light space-mono-regular" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">"With a burning passion for learning, I am always ready to strive for excellence and create something amazing."</h5>
+        </div>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col s12 center">
+          <a data-target="slide-out" 
+             class="sidenav-trigger waves-effect waves-light btn-large white-text-modified space-mono-regular" 
+             style="background-color: rgba(29, 96, 9, 1); --after-bottom: 0px; 
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                    transform: translateY(-3px);">
+             Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="black tab-shadow">
+    <div class="container">
+      <div class="section">
+        <div class="row">
+          <div class="col s12 center">
+            <h3><i class="mdi-content-send white-text"></i></h3>
+            <h4 id="contact" class="section scrollspy white-text space-mono-regular">Contacts</h4>
+            <br>
+
+            <ul class="collapsible popout black">
+              <!-- Collapsible Item 1 -->
+              <li>
+                <div class="collapsible-header black white-text-modified tab-shadow space-mono-regular" style="--after-bottom: 0px;">
+                  <i class="material-icons">email</i>
+                  Email
+                </div>
+                <div class="collapsible-body white-text space-mono-regular">
+                  <a href="mailto:brianccwork@gmail.com" target="_blank"><span class="space-mono-regular white-text-modified email" style="--after-bottom: 0px;">brianccwork@gmail.com</span></a>
+                </div>
+              </li>
+            
+              <!-- Collapsible Item 2 -->
+              <li>
+                <div class="collapsible-header black white-text-modified tab-shadow space-mono-regular" style="--after-bottom: 0px;">
+                  <i class="material-icons">local_phone</i>
+                  Phone Number
+                </div>
+                <div class="collapsible-body white-text space-mono-regular">
+                  <a href="mailto:brianccwork@gmail.com" target="_blank"><span class="space-mono-regular white-text-modified email" style="--after-bottom: 0px;">Temporarily Unavailable</span></a>
+                </div>
+              </li>
+            
+              <!-- Collapsible Item 3 -->
+              <li>
+                <div class="collapsible-header black white-text-modified tab-shadow space-mono-regular" style="--after-bottom: 0px;">
+                  <img src="images/linkedin-logo.png" alt="LinkedIn" class="linkedin-logo" style="margin-right: 25px">
+                  LinkedIn
+                </div>
+                <div class="collapsible-body white-text space-mono-regular">
+                  <a href="https://www.linkedin.com/in/bcraciun/" target = "_blank"><span class="space-mono-regular white-text-modified name" style="--after-bottom: 0px;">Check Out My LinkedIn!</span></a>
+                </div>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light space-mono-regular" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Thank you for visiting my portfolio! <br> <br> If you have any questions or wish to work with me, all my contacts are listed above!</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax">
+      <video autoplay muted loop playsinline controls class="parallax-video">
+        <source src="videos/testbgperfcodec.mp4" type ="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <script>
+  var options = {};
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems, options);
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, options);
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.parallax');
+    var instances = M.Parallax.init(elems, options);
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.scrollspy');
+    var instances = M.ScrollSpy.init(elems, options);
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+    var collapsibleElem = document.querySelector('.collapsible');
+    var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+  });
+
+  document.addEventListener('mousemove', function(event) {
+    const cube = document.createElement('div');
+    cube.classList.add('cube');
+    cube.style.left = `${event.pageX}px`;
+    cube.style.top = `${event.pageY}px`;
+
+    const container = document.getElementById('cube-container');
+    container.appendChild(cube);
+
+    // Remove the cube after the animation ends
+    setTimeout(() => {
+      cube.remove();
+    }, 1000); // Match this with the animation duration
+  });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+</body>
+</html>
