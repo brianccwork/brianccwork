@@ -1,6 +1,5 @@
 # 💫 About Me:
-I am a Computer Science major at Iowa State University.<br>I am working on multiple personal projects at the moment.<br>I have a passion for learning and understanding the tools and processes needed for the task at hand.
-
+I am a Computer Science major at Iowa State University, driven by a passion for learning and mastering the tools and processes necessary for success. Currently, I am working on several personal projects that challenge me to grow and apply my skills in innovative ways.
 
 ## 🌐 Socials:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/bcraciun) 
