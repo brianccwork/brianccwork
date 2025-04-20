@@ -11,8 +11,5 @@ I am a Computer Science major at Iowa State University, driven by a passion for 
 ![](https://github-readme-streak-stats.herokuapp.com/?user=brianccwork&theme=shadow_green&hide_border=false)<br/>
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=brianccwork&theme=shadow_green&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
 
-### ✍️ Random Dev Quote
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark)
-
 ---
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
